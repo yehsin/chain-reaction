@@ -175,7 +175,7 @@ void algorithm_A(Board board, Player player, int index[]){
                                 }
                             }
                         }
-                        if(BLUe == 0 && round != 0 ){
+                        if(BLUe == 0 && round != 0 ){   //when I am win
                             oufile<<"rule1"<<"　"<<i<<" "<<j;
                             index[0] = i;
                             index[1] = j;
@@ -213,174 +213,176 @@ void algorithm_A(Board board, Player player, int index[]){
     for(int i =0;i<5;i++){
         for(int j = 0;j<6;j++){
             tmp = board;
-            tmp.place_orb(i,j,enemy);
-            //std::cout<<"QQ";
-            if(tmp.win_the_game(*enemy)){
-                int ID = i*6+j;
-                /*選一個會炸到此格的並能吃掉最多的格子*/
-                for(int k = 0;k<5;k++){
-                    for(int l = 0;l<6;l++){
-                        switch(ID){
-                            case 0: if(board.get_cell_color(k,l) == color && record0[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }   
-                            case 1: if(board.get_cell_color(k,l) == color && record1[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 2: if(board.get_cell_color(k,l) == color && record2[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 3: if(board.get_cell_color(k,l) == color && record3[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 4: if(board.get_cell_color(k,l) == color&& record4[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 5: if(board.get_cell_color(k,l) == color && record5[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 6:if(board.get_cell_color(k,l) == color  && record6[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 7: if(board.get_cell_color(k,l) == color && record7[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 8: if(board.get_cell_color(k,l) == color  && record8[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 9: if(board.get_cell_color(k,l) == color && record9[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 10: if(board.get_cell_color(k,l) == color  && record10[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 11: if(board.get_cell_color(k,l) == color && record11[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 12: if(board.get_cell_color(k,l) == color && record12[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 13: if(board.get_cell_color(k,l) == color && record13[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 14: if(board.get_cell_color(k,l) == color && record14[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 15: if(board.get_cell_color(k,l) == color  && record15[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 16: if(board.get_cell_color(k,l) == color && record16[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 17: if(board.get_cell_color(k,l) == color && record17[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 18: if(board.get_cell_color(k,l) == color && record18[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 19: if(board.get_cell_color(k,l) == color && record19[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 20: if(board.get_cell_color(k,l) == color && record20[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 21: if(board.get_cell_color(k,l) == color && record21[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 22: if(board.get_cell_color(k,l) == color && record22[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 23: if(board.get_cell_color(k,l) == color && record23[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 24: if(board.get_cell_color(k,l) == color && record24[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 25: if(board.get_cell_color(k,l) == color && record25[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 26: if(board.get_cell_color(k,l) == color && record26[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 27: if(board.get_cell_color(k,l) == color && record27[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 28: if(board.get_cell_color(k,l) == color && record28[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
-                            }
-                            case 29: if(board.get_cell_color(k,l) == color && record29[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
-                                index[0] = k;
-                                index[1] = l;
-                                break;
+            if(tmp.get_cell_color(i,j) == enemy_color ){
+                tmp.place_orb(i,j,enemy);
+                //std::cout<<"QQ";
+                if(tmp.win_the_game(*enemy)){
+                    int ID = i*6+j;
+                    /*選一個會炸到此格的並能吃掉最多的格子*/
+                    for(int k = 0;k<5;k++){
+                        for(int l = 0;l<6;l++){
+                            switch(ID){
+                                case 0: if(board.get_cell_color(k,l) == color && record0[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }   
+                                case 1: if(board.get_cell_color(k,l) == color && record1[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 2: if(board.get_cell_color(k,l) == color && record2[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 3: if(board.get_cell_color(k,l) == color && record3[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 4: if(board.get_cell_color(k,l) == color&& record4[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 5: if(board.get_cell_color(k,l) == color && record5[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 6:if(board.get_cell_color(k,l) == color  && record6[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 7: if(board.get_cell_color(k,l) == color && record7[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 8: if(board.get_cell_color(k,l) == color  && record8[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 9: if(board.get_cell_color(k,l) == color && record9[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 10: if(board.get_cell_color(k,l) == color  && record10[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 11: if(board.get_cell_color(k,l) == color && record11[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 12: if(board.get_cell_color(k,l) == color && record12[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 13: if(board.get_cell_color(k,l) == color && record13[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 14: if(board.get_cell_color(k,l) == color && record14[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 15: if(board.get_cell_color(k,l) == color  && record15[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 16: if(board.get_cell_color(k,l) == color && record16[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 17: if(board.get_cell_color(k,l) == color && record17[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 18: if(board.get_cell_color(k,l) == color && record18[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 19: if(board.get_cell_color(k,l) == color && record19[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 20: if(board.get_cell_color(k,l) == color && record20[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 21: if(board.get_cell_color(k,l) == color && record21[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 22: if(board.get_cell_color(k,l) == color && record22[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 23: if(board.get_cell_color(k,l) == color && record23[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 24: if(board.get_cell_color(k,l) == color && record24[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 25: if(board.get_cell_color(k,l) == color && record25[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 26: if(board.get_cell_color(k,l) == color && record26[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 27: if(board.get_cell_color(k,l) == color && record27[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 28: if(board.get_cell_color(k,l) == color && record28[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
+                                case 29: if(board.get_cell_color(k,l) == color && record29[k][l] == 1 && record30[k][l] > record30[index[0]][index[1]]){
+                                    index[0] = k;
+                                    index[1] = l;
+                                    break;
+                                }
                             }
                         }
+                            
                     }
-                        
+                    //std::cout<<"MM";
+                    if(index[0]*6+index[1] != ID){
+                        oufile<<"rule2"<<" "<<index[0]<<" "<<index[1]<<endl;
+                        return;
+                    }
+                    //std::cout<<"TT";
                 }
-                //std::cout<<"MM";
-                if(index[0]*6+index[1] != ID){
-                    oufile<<"rule2"<<" "<<index[0]<<" "<<index[1]<<endl;
-                    return;
-                }
-                //std::cout<<"TT";
             }
         }
     }
@@ -389,7 +391,7 @@ void algorithm_A(Board board, Player player, int index[]){
 
     //check whether the corner will be occupyied
     if(board.get_cell_color(0,0) == color){
-        if(board.get_cell_color(0,1) ==enemy_color){
+        if(board.get_cell_color(0,1) == enemy_color){
             if(board.get_orbs_num(0,1) == 2){
                 
                 index[0] = 0;
@@ -429,7 +431,6 @@ void algorithm_A(Board board, Player player, int index[]){
             }
         }
     }
-
 
     else if(board.get_cell_color(4,0) == color){
         if(board.get_cell_color(3,0) == enemy_color){
@@ -474,7 +475,7 @@ void algorithm_A(Board board, Player player, int index[]){
     }
     //搶角落
     if(board.get_cell_color(0,0) == 'w'){
-        if(((board.get_cell_color(0,1) != 'w' && board.get_cell_color(0,1) != color && board.get_orbs_num(0,1) != 2) && (board.get_cell_color(1,0) != 'w' && board.get_cell_color(1,0)!= color && board.get_orbs_num(1,0)!= 2))||(board.get_orbs_num(1,0) <= 2 && board.get_orbs_num(0,1) <= 2)){
+        if(!((board.get_cell_color(0,1) == enemy_color && board.get_orbs_num(0,1) == 2) || (board.get_cell_color(1,0) ==enemy_color && board.get_orbs_num(1,0)== 2))){
             
             index[0] = 0;
             index[1] = 0;
@@ -483,7 +484,7 @@ void algorithm_A(Board board, Player player, int index[]){
         }
     }
     else if(board.get_cell_color(0,5) == 'w'){
-        if(((board.get_cell_color(0,4) ==enemy_color && board.get_orbs_num(0,4) != 2) && (board.get_cell_color(1,5) ==enemy_color && board.get_orbs_num(1,5)!= 2)) || ((board.get_orbs_num(1,5) <= 2 && board.get_cell_color(1,5)!=color) && (board.get_orbs_num(0,4) <= 2 && board.get_cell_color(0,4)!=color))){
+        if(!((board.get_cell_color(0,4) ==enemy_color && board.get_orbs_num(0,4) == 2) || (board.get_cell_color(1,5) ==enemy_color && board.get_orbs_num(1,5)== 2)) ){
             
             index[0] = 0;
             index[1] = 5;
@@ -492,7 +493,7 @@ void algorithm_A(Board board, Player player, int index[]){
         }
     }
     else if(board.get_cell_color(4,0) == 'w'){
-        if(((board.get_cell_color(3,0) != 'w' && board.get_cell_color(3,0) != color && board.get_orbs_num(3,0) != 2) && (board.get_cell_color(4,1) != 'w' && board.get_cell_color(4,1)!= color && board.get_orbs_num(4,1)!= 2)) || (board.get_orbs_num(3,0) <= 2 && board.get_orbs_num(4,1) <= 2)){
+        if(!((board.get_cell_color(3,0) ==enemy_color && board.get_orbs_num(3,0) == 2) || (board.get_cell_color(4,1) ==enemy_color && board.get_orbs_num(4,1)== 2)) ){
             
             index[0] = 4;
             index[1] = 0;
@@ -501,7 +502,7 @@ void algorithm_A(Board board, Player player, int index[]){
         }
     }
     else if(board.get_cell_color(4,5) == 'w'){
-        if(((board.get_cell_color(3,5) != 'w' && board.get_cell_color(3,5) != color && board.get_orbs_num(3,5) != 2) && (board.get_cell_color(4,4) != 'w' && board.get_cell_color(4,4)!= color && board.get_orbs_num(4,4)!= 2)) || (board.get_orbs_num(3,5) <= 2 && board.get_orbs_num(4,4) <= 2)){
+        if(!((board.get_cell_color(3,5) ==enemy_color && board.get_orbs_num(3,5) == 2) || (board.get_cell_color(4,4) ==enemy_color && board.get_orbs_num(4,4) == 2)) ){
             
             index[0] = 4;
             index[1] = 5;
@@ -516,15 +517,13 @@ void algorithm_A(Board board, Player player, int index[]){
     int max_row;
     int max_col;
     for(int m=0;m<5;m++){
-        for(int n =0;n<6;n++){
+        for(int n=0;n<6;n++){
             if(board.get_cell_color(m,n) == color){
-
-            
                 if(record0[m][n] == 1 && board.get_cell_color(0,0) == enemy_color) priority[m][n]+=2;
                 if(record5[m][n] == 1 && board.get_cell_color(0,5) == enemy_color) priority[m][n]+=2;
                 if(record24[m][n] == 1 && board.get_cell_color(4,0) == enemy_color) priority[m][n]+=2;
                 if(record29[m][n] == 1 && board.get_cell_color(4,5) == enemy_color) priority[m][n]+=2;
-                if(record0[m][n] == 1 && record5[m][n] == 1 && record24[m][n] == 1 && record29[m][n] == 1) priority[m][n] +=5;
+                //if(record0[m][n] == 1 && record5[m][n] == 1 && record24[m][n] == 1 && record29[m][n] == 1) priority[m][n] +=5;
                 if((record0[m][n] == 1 && board.get_cell_color(0,0) == enemy_color) || (record5[m][n] == 1 && board.get_cell_color(0,5) == enemy_color)|| (record24[m][n] == 1 && board.get_cell_color(4,0) == enemy_color)|| (record29[m][n] == 1 && board.get_cell_color(4,5) == enemy_color)){
                     priority[m][n]+=record30[m][n];
                     for(int f = 0;f<5;f++){
@@ -542,6 +541,7 @@ void algorithm_A(Board board, Player player, int index[]){
                 else{
                     priority[m][n]+=record30[m][n];
                     if(priority[m][n] >= max){
+                        max = priority[m][n];
                         max_row = m;
                         max_col = n;
                     }
@@ -569,7 +569,7 @@ void algorithm_A(Board board, Player player, int index[]){
 
     //XX XX
     //OO X
-    if(board.get_orbs_num(4,4) == 2 && board.get_cell_color(4,4) == color && board.get_orbs_num(4,5)==1 && board.get_cell_color(4,5)!='w' &&board.get_cell_color(4,5)!= color){
+    if(board.get_orbs_num(4,4) == 2 && board.get_cell_color(4,4) == color && board.get_orbs_num(4,5)==1 && board.get_cell_color(4,5)==enemy_color){
         
         index[0] = 4;
         index[1] = 4;
@@ -579,9 +579,9 @@ void algorithm_A(Board board, Player player, int index[]){
 
     //X XX
     //OO X
-    else if(board.get_orbs_num(1,0) == 2 && board.get_cell_color(1,0) == color && board.get_orbs_num(0,0)==1 && board.get_cell_color(0,0)!='w' &&board.get_cell_color(0,0)!= color){
+    else if(board.get_orbs_num(1,0) == 2 && board.get_cell_color(1,0) == color && board.get_orbs_num(0,0)==1 && board.get_cell_color(0,0)==enemy_color){
         
-        index[0] = 0;
+        index[0] = 1;
         index[1] = 0;
         oufile<<"rule7"<<" "<<index[0]<<" "<<index[1]<<endl;
         return;
@@ -589,27 +589,27 @@ void algorithm_A(Board board, Player player, int index[]){
 
     //OO X
     //XX X
-    else if(board.get_orbs_num(0,4) == 2 && board.get_cell_color(0,4) == color && board.get_orbs_num(0,5)==1 && board.get_cell_color(0,5)!='w' &&board.get_cell_color(0,5)!= color){
+    else if(board.get_orbs_num(0,4) == 2 && board.get_cell_color(0,4) == color && board.get_orbs_num(0,5)==1 && board.get_cell_color(0,5) == enemy_color){
         
-        index[0] = 3;
+        index[0] = 0;
         index[1] = 4;
         oufile<<"rule8"<<" "<<index[0]<<" "<<index[1]<<endl;
         return;
     }
     //OO XX
     //X  X
-    else if(board.get_orbs_num(3,0) == 2 && board.get_cell_color(3,0) == color && board.get_orbs_num(4,0)==1 && board.get_cell_color(4,0)!='w' &&board.get_cell_color(4,0)!= color)
+    else if(board.get_orbs_num(3,0) == 2 && board.get_cell_color(3,0) == color && board.get_orbs_num(4,0)==1 && board.get_cell_color(4,0) == enemy_color)
         //*1
     for(int i =0;i<5;i++){
         for(int j =0;j<6;j++){
-                //full = 3
+            //full = 3
             if(board.get_orbs_num(i,j) == 2 && board.get_cell_color(i,j) == color){
-                    //X OO
-                    //XX XX
-                    //左邊是邊界
-                if(i<4 && j==1 && board.get_orbs_num(i,j-1) == 1 && board.get_cell_color(i,j-1)!='w' && board.get_cell_color(i,j-1)!=color){
-                    if(board.get_orbs_num(i+1,j-1) == 2 && board.get_cell_color(i+1,j-1)!='w' && board.get_cell_color(i+1,j-1)!=color){
-                        if(board.get_orbs_num(i+1,j) == 2 && board.get_cell_color(i+1,j)!='w' && board.get_cell_color(i+1,j)!=color){
+                //X OO
+                //XX XX
+                //左邊是邊界
+                if(i<4 && i!= 0 && j==1 && board.get_orbs_num(i,j-1) == 1 && board.get_cell_color(i,j-1) == enemy_color){
+                    if(board.get_orbs_num(i+1,j-1) == 2 && board.get_cell_color(i+1,j-1) == enemy_color){
+                        if(board.get_orbs_num(i+1,j) == 2 && board.get_cell_color(i+1,j) == enemy_color){
                             
                             index[0] = i;
                             index[1] = j;
@@ -620,9 +620,9 @@ void algorithm_A(Board board, Player player, int index[]){
                     //XX  OO
                     //XXX XX   
                 }
-                else if(i<3 && j>1 && j<5 && board.get_orbs_num(i,j-1) == 2 && board.get_cell_color(i,j-1)!='w' && board.get_cell_color(i,j-1)!=color){
-                    if(board.get_orbs_num(i+1,j-1) == 3 && board.get_cell_color(i+1,j-1)!='w' && board.get_cell_color(i+1,j-1)!=color){
-                        if(board.get_orbs_num(i+1,j) == 2 && board.get_cell_color(i+1,j)!='w' && board.get_cell_color(i+1,j)!=color){
+                else if(i<3 && j>1 && j<5 && board.get_orbs_num(i,j-1) == 2 && board.get_cell_color(i,j-1) == enemy_color){
+                    if(board.get_orbs_num(i+1,j-1) == 3 && board.get_cell_color(i+1,j-1) == enemy_color){
+                        if(board.get_orbs_num(i+1,j) == 2 && board.get_cell_color(i+1,j) == enemy_color){
                             
                             index[0] = i;
                             index[1] = j;
@@ -631,11 +631,11 @@ void algorithm_A(Board board, Player player, int index[]){
                         }
                     }
                 }
-                    //XX  OO
-                    //XX  X
-                else if(i==3 && j>1 && j<5 && board.get_orbs_num(i,j-1) == 2 && board.get_cell_color(i,j-1)!='w' && board.get_cell_color(i,j-1)!=color){
-                    if(board.get_orbs_num(i+1,j-1) == 2 && board.get_cell_color(i+1,j-1)!='w' && board.get_cell_color(i+1,j-1)!=color){
-                        if(board.get_orbs_num(i+1,j) == 1 && board.get_cell_color(i+1,j)!='w' && board.get_cell_color(i+1,j)!=color){
+                //XX  OO
+                //XX  X
+                else if(i==3 && j>1 && j<5 && board.get_orbs_num(i,j-1) == 2 && board.get_cell_color(i,j-1) == enemy_color){
+                    if(board.get_orbs_num(i+1,j-1) == 2 && board.get_cell_color(i+1,j-1) == enemy_color){
+                        if(board.get_orbs_num(i+1,j) == 1 && board.get_cell_color(i+1,j) == enemy_color){
                             
                             index[0] = i;
                             index[1] = j;
@@ -644,11 +644,11 @@ void algorithm_A(Board board, Player player, int index[]){
                         }
                     }
                 }
-                    //OO  XX
-                    //XX XXX
-                if(i<4 && j>1 && j<4 && board.get_orbs_num(i,j+1) == 2 && board.get_cell_color(i,j+1)!='w' && board.get_cell_color(i,j+1)!=color){
-                    if(board.get_orbs_num(i+1,j+1) == 3 && board.get_cell_color(i+1,j+1)!='w' && board.get_cell_color(i+1,j+1)!=color){
-                        if(board.get_orbs_num(i+1,j) == 2 && board.get_cell_color(i+1,j)!='w' && board.get_cell_color(i+1,j)!=color){
+                //OO  XX
+                //XX XXX
+                if(i<4 && j>1 && j<4 && board.get_orbs_num(i,j+1) == 2 && board.get_cell_color(i,j+1) == enemy_color){
+                    if(board.get_orbs_num(i+1,j+1) == 3 && board.get_cell_color(i+1,j+1) == enemy_color){
+                        if(board.get_orbs_num(i+1,j) == 2 && board.get_cell_color(i+1,j) == enemy_color){
                             
                             index[0] = i;
                             index[1] = j;
@@ -659,9 +659,9 @@ void algorithm_A(Board board, Player player, int index[]){
                 }
                 //OO XX
                 //X  XX
-                else if(i==3 && j>1 && j<4 && board.get_orbs_num(i,j+1) == 2 && board.get_cell_color(i,j+1)!='w' && board.get_cell_color(i,j+1)!=color){
-                    if(board.get_orbs_num(i+1,j+1) == 2 && board.get_cell_color(i+1,j+1)!='w' && board.get_cell_color(i+1,j+1)!=color){
-                        if(board.get_orbs_num(i+1,j) == 1 && board.get_cell_color(i+1,j)!='w' && board.get_cell_color(i+1,j)!=color){
+                else if(i==3 && j>1 && j<4 && board.get_orbs_num(i,j+1) == 2 && board.get_cell_color(i,j+1) == enemy_color){
+                    if(board.get_orbs_num(i+1,j+1) == 2 && board.get_cell_color(i+1,j+1) == enemy_color){
+                        if(board.get_orbs_num(i+1,j) == 1 && board.get_cell_color(i+1,j) == enemy_color){
                             
                             index[0] = i;
                             index[1] = j;
@@ -670,11 +670,11 @@ void algorithm_A(Board board, Player player, int index[]){
                         }
                     }
                 }
-                    //OO X
-                    //XX XX
-                else if(i<4 && j==4 && board.get_orbs_num(i,j+1) == 1 && board.get_cell_color(i,j+1)!='w' && board.get_cell_color(i,j+1)!=color){
-                    if(board.get_orbs_num(i+1,j+1) == 2 && board.get_cell_color(i+1,j+1)!='w' && board.get_cell_color(i+1,j+1)!=color){
-                        if(board.get_orbs_num(i+1,j) == 2 && board.get_cell_color(i+1,j)!='w' && board.get_cell_color(i+1,j)!=color){
+                //OO X
+                //XX XX
+                else if(i<4 && i!=0 && j==4 && board.get_orbs_num(i,j+1) == 1 && board.get_cell_color(i,j+1) == enemy_color){
+                    if(board.get_orbs_num(i+1,j+1) == 2 && board.get_cell_color(i+1,j+1) == enemy_color){
+                        if(board.get_orbs_num(i+1,j) == 2 && board.get_cell_color(i+1,j) == enemy_color){
                             
                             index[0] = i;
                             index[1] = j;
@@ -683,11 +683,11 @@ void algorithm_A(Board board, Player player, int index[]){
                         }
                     }
                 }
-                    //XX XXX
-                    //OO XX
-                if(i<4 && j>1 && j<4 && board.get_orbs_num(i,j+1) == 2 && board.get_cell_color(i,j+1)!='w' && board.get_cell_color(i,j+1)!=color){
-                    if(board.get_orbs_num(i-1,j+1) == 3 &&  board.get_cell_color(i-1,j+1)!='w' && board.get_cell_color(i-1,j+1)!=color){
-                        if(board.get_orbs_num(i-1,j) == 2 && board.get_cell_color(i-1,j)!='w' && board.get_cell_color(i-1,j)!=color){
+                //XX XXX
+                //OO XX
+                if(i<4 && j>1 && j<4 && board.get_orbs_num(i,j+1) == 2 && board.get_cell_color(i,j+1) == enemy_color){
+                    if(board.get_orbs_num(i-1,j+1) == 3 &&  board.get_cell_color(i-1,j+1) == enemy_color){
+                        if(board.get_orbs_num(i-1,j) == 2 && board.get_cell_color(i-1,j) == enemy_color){
                             
                             index[0] = i;
                             index[1] = j;
@@ -696,11 +696,11 @@ void algorithm_A(Board board, Player player, int index[]){
                         }
                     }
                 }
-                    //X  XX
-                    //OO XX
-                else if(i == 1 && j>1 && j<4 && board.get_orbs_num(i,j+1) == 2){
-                    if(board.get_orbs_num(i-1,j+1) == 2){
-                        if(board.get_orbs_num(i-1,j) == 1){
+                //X  XX
+                //OO XX
+                else if(i == 1 && j>1 && j<4 && board.get_orbs_num(i,j+1) == 2 && board.get_cell_color(i,j+1) == enemy_color){
+                    if(board.get_orbs_num(i-1,j+1) == 2 && board.get_cell_color(i-1,j+1) == enemy_color){
+                        if(board.get_orbs_num(i-1,j) == 1 && board.get_cell_color(i-1,j) == enemy_color){
                             
                             index[0] = i;
                             index[1] = j;
@@ -709,11 +709,11 @@ void algorithm_A(Board board, Player player, int index[]){
                         }
                     }
                 }
-                    //XX XX
-                    //OO X
-                else if(i<4 && j == 4 && board.get_orbs_num(i,j+1) == 1){
-                    if(board.get_orbs_num(i-1,j+1) == 2){
-                        if(board.get_orbs_num(i-1,j) == 2){
+                //XX XX
+                //OO X
+                else if(i<4 && j == 4 && board.get_orbs_num(i,j+1) == 1 && board.get_cell_color(i,j+1) == enemy_color){
+                    if(board.get_orbs_num(i-1,j+1) == 2 && board.get_cell_color(i-1,j+1) == enemy_color){
+                        if(board.get_orbs_num(i-1,j) == 2 && board.get_cell_color(i-1,j) == enemy_color){
                             
                             index[0] = i;
                             index[1] = j;
@@ -725,9 +725,9 @@ void algorithm_A(Board board, Player player, int index[]){
 
                 //X  X
                 //OO X
-                else if(i==1 && j == 4 && board.get_orbs_num(i,j+1) == 1){
-                    if(board.get_orbs_num(i-1,j+1) == 1){
-                        if(board.get_orbs_num(i-1,j) == 1){
+                else if(i==1 && j == 4 && board.get_orbs_num(i,j+1) == 1 && board.get_cell_color(i,j+1) == enemy_color){
+                    if(board.get_orbs_num(i-1,j+1) == 1 && board.get_cell_color(i-1,j+1) == enemy_color){
+                        if(board.get_orbs_num(i-1,j) == 1 && board.get_cell_color(i-1,j) == enemy_color){
                             index[0] = i;
                             index[1] = j;
                             oufile<<"rule114"<<" "<<index[0]<<" "<<index[1]<<endl;
@@ -736,11 +736,11 @@ void algorithm_A(Board board, Player player, int index[]){
                     }
                 }
 
-                    //XX XXX
-                    //XX OO
-                if(i<4 && j>1 && j<4 && board.get_orbs_num(i,j-1) == 2){
-                    if(board.get_orbs_num(i-1,j-1) == 2){
-                        if(board.get_orbs_num(i-1,j) == 3){
+                //XXX XX
+                //XX OO
+                if(i<4 && j>1 && j<4 && board.get_orbs_num(i,j-1) == 2 && board.get_cell_color(i,j-1) == enemy_color){
+                    if(board.get_orbs_num(i-1,j-1) == 3 && board.get_cell_color(i-1,j-1) == enemy_color){
+                        if(board.get_orbs_num(i-1,j) == 2 && board.get_cell_color(i-1,j) == enemy_color){
                             
                             index[0] = i;
                             index[1] = j;
@@ -751,9 +751,9 @@ void algorithm_A(Board board, Player player, int index[]){
                 }
                     //XX XX
                     //X  OO
-                else if(i<4 && j==1 && board.get_orbs_num(i,j-1) == 1){
-                    if(board.get_orbs_num(i-1,j-1) == 2){
-                        if(board.get_orbs_num(i-1,j) == 2){
+                else if(i<4 && j==1 && board.get_orbs_num(i,j-1) == 1 && board.get_cell_color(i,j-1) == enemy_color){
+                    if(board.get_orbs_num(i-1,j-1) == 2 && board.get_cell_color(i-1,j-1) == enemy_color){
+                        if(board.get_orbs_num(i-1,j) == 2 && board.get_cell_color(i-1,j) == enemy_color){
                             
                             index[0] = i;
                             index[1] = j;
@@ -764,9 +764,9 @@ void algorithm_A(Board board, Player player, int index[]){
                 }
                     //XX X
                     //XX OO   
-                else if(i==1 && j>1 && j<4 && board.get_orbs_num(i,j-1) == 2){
-                    if(board.get_orbs_num(i-1,j-1) == 1){
-                        if(board.get_orbs_num(i-1,j) == 1){
+                else if(i==1 && j>1 && j<4 && board.get_orbs_num(i,j-1) == 2 && board.get_cell_color(i,j-1) == enemy_color){
+                    if(board.get_orbs_num(i-1,j-1) == 1 && board.get_cell_color(i-1,j-1) == enemy_color){
+                        if(board.get_orbs_num(i-1,j) == 1 && board.get_cell_color(i-1,j) == enemy_color){
                             
                             index[0] = i;
                             index[1] = j;
@@ -778,9 +778,9 @@ void algorithm_A(Board board, Player player, int index[]){
 
                 //X  X
                 //X OO
-                else if(i==1 && j == 1 && board.get_orbs_num(i,j-1) == 1){
-                    if(board.get_orbs_num(i-1,j-1) == 1){
-                        if(board.get_orbs_num(i-1,j) == 1){
+                else if(i==1 && j == 1 && board.get_orbs_num(i,j-1) == 1 && board.get_cell_color(i,j-1) == enemy_color){
+                    if(board.get_orbs_num(i-1,j-1) == 1 && board.get_cell_color(i-1,j-1) == enemy_color){
+                        if(board.get_orbs_num(i-1,j) == 1 && board.get_cell_color(i-1,j) == enemy_color){
                             
                             index[0] = i;
                             index[1] = j;
@@ -811,9 +811,9 @@ void algorithm_A(Board board, Player player, int index[]){
             else if(board.get_orbs_num(i,j) == 1 && board.get_cell_color(i,j) == color){
                 //O X
                 //X X
-                if(i == 3 && j == 4 && board.get_orbs_num(i,j+1)==1 && board.get_cell_color(i,j+1)!=color && board.get_cell_color(i,j+1)!='w'){
-                    if(board.get_orbs_num(i+1,j+1)==1 && board.get_cell_color(i+1,j+1)!=color && board.get_cell_color(i+1,j+1)!='w'){
-                        if(board.get_orbs_num(i+1,j)==1 && board.get_cell_color(i+1,j)!=color && board.get_cell_color(i+1,j)!='w'){
+                if(i == 3 && j == 4 && board.get_orbs_num(i,j+1)==1 && board.get_cell_color(i,j+1) == enemy_color){
+                    if(board.get_orbs_num(i+1,j+1)==1 && board.get_cell_color(i+1,j+1)== enemy_color ){
+                        if(board.get_orbs_num(i+1,j)==1 && board.get_cell_color(i+1,j) == enemy_color ){
                             
                             index[0] = i;
                             index[1] = j;
@@ -824,9 +824,9 @@ void algorithm_A(Board board, Player player, int index[]){
                 }
                 //O 
                 //XX XX
-                else if(i == 0 && j == 4 && board.get_orbs_num(i,j+1)==0){
-                    if(board.get_orbs_num(i+1,j+1)==2 && board.get_cell_color(i+1,j+1)!=color && board.get_cell_color(i+1,j+1)!='w'){
-                        if(board.get_orbs_num(i+1,j)==2 && board.get_cell_color(i+1,j)!=color && board.get_cell_color(i+1,j)!='w'){
+                else if(i == 0 && j == 4 && board.get_orbs_num(i,j+1)==0 && board.get_cell_color(i,j+1) == enemy_color){
+                    if(board.get_orbs_num(i+1,j+1)==2 && board.get_cell_color(i+1,j+1) == enemy_color){
+                        if(board.get_orbs_num(i+1,j)==2 && board.get_cell_color(i+1,j) == enemy_color){
                             
                             index[0] = i;
                             index[1] = j;
@@ -837,9 +837,9 @@ void algorithm_A(Board board, Player player, int index[]){
                 }
                 //O XX
                 //  XX
-                else if(i == 3 && j == 0 && board.get_orbs_num(i,j+1)==2 && board.get_cell_color(i,j+1)!=color && board.get_cell_color(i,j+1)!='w'){
-                    if(board.get_orbs_num(i+1,j+1)==2 && board.get_cell_color(i+1,j+1)!=color && board.get_cell_color(i+1,j+1)!='w'){
-                        if(board.get_orbs_num(i+1,j)==0 && board.get_cell_color(i+1,j)!=color && board.get_cell_color(i+1,j)!='w'){
+                else if(i == 3 && j == 0 && board.get_orbs_num(i,j+1)==2 && board.get_cell_color(i,j+1) == enemy_color){
+                    if(board.get_orbs_num(i+1,j+1)==2 && board.get_cell_color(i+1,j+1) == enemy_color){
+                        if(board.get_orbs_num(i+1,j)==0){
                             
                             index[0] = i;
                             index[1] = j;
@@ -849,11 +849,11 @@ void algorithm_A(Board board, Player player, int index[]){
                     }
                 }
 
-                //   O
+                //X   O
                 //XX XX
-                if(i == 1 && j == 1 && board.get_orbs_num(i,j-1)==0 && board.get_cell_color(i,j-1)!=color && board.get_cell_color(i,j-1)!='w'){
-                    if(board.get_orbs_num(i+1,j-1)==2 && board.get_cell_color(i+1,j-1)!=color && board.get_cell_color(i+1,j-1)!='w'){
-                        if(board.get_orbs_num(i+1,j)==2 && board.get_cell_color(i+1,j)!=color && board.get_cell_color(i+1,j)!='w'){
+                if(i == 1 && j == 1 && board.get_orbs_num(i,j-1)==1 && board.get_cell_color(i,j-1) == enemy_color){
+                    if(board.get_orbs_num(i+1,j-1)==2 && board.get_cell_color(i+1,j-1) == enemy_color){
+                        if(board.get_orbs_num(i+1,j)==2 && board.get_cell_color(i+1,j) == enemy_color){
                             
                             index[0] = i;
                             index[1] = j;
@@ -863,10 +863,10 @@ void algorithm_A(Board board, Player player, int index[]){
                     }
                 }
                 //XX O
-                //X
-                else if(i == 3 && j == 5 && board.get_orbs_num(i,j-1)==2 && board.get_cell_color(i,j-1)!=color && board.get_cell_color(i,j-1)!='w'){
-                    if(board.get_orbs_num(i+1,j-1)==1 && board.get_cell_color(i+1,j-1)!=color && board.get_cell_color(i+1,j-1)!='w'){
-                        if(board.get_orbs_num(i+1,j)==0 && board.get_cell_color(i+1,j)!=color && board.get_cell_color(i+1,j)!='w'){
+                //XX
+                else if(i == 3 && j == 5 && board.get_orbs_num(i,j-1)==2 && board.get_cell_color(i,j-1) == enemy_color){
+                    if(board.get_orbs_num(i+1,j-1)==2 && board.get_cell_color(i+1,j-1) == enemy_color){
+                        if(board.get_orbs_num(i+1,j)==0){
                             
                             index[0] = i;
                             index[1] = j;
@@ -877,9 +877,9 @@ void algorithm_A(Board board, Player player, int index[]){
                 }
                 //X  O
                 //X  X
-                else if(i == 3 && j == 1 && board.get_orbs_num(i,j-1)==1 && board.get_cell_color(i,j-1)!=color && board.get_cell_color(i,j-1)!='w'){
-                    if(board.get_orbs_num(i+1,j-1)==1 && board.get_cell_color(i+1,j-1)!=color && board.get_cell_color(i+1,j-1)!='w'){
-                        if(board.get_orbs_num(i+1,j)==1 && board.get_cell_color(i+1,j)!=color && board.get_cell_color(i+1,j)!='w'){
+                else if(i == 3 && j == 1 && board.get_orbs_num(i,j-1)==1 && board.get_cell_color(i,j-1) == enemy_color){
+                    if(board.get_orbs_num(i+1,j-1)==1 && board.get_cell_color(i+1,j-1) == enemy_color){
+                        if(board.get_orbs_num(i+1,j)==1 && board.get_cell_color(i+1,j) == enemy_color){
                             
                             index[0] = i;
                             index[1] = j;
@@ -890,9 +890,9 @@ void algorithm_A(Board board, Player player, int index[]){
                 }
                 //XX  
                 //XX  O
-                if(i == 1 && j == 5 && board.get_orbs_num(i,j-1)==2 && board.get_cell_color(i,j-1)!=color && board.get_cell_color(i,j-1)!='w'){
-                    if(board.get_orbs_num(i-1,j-1)==1 && board.get_cell_color(i-1,j-1)!=color && board.get_cell_color(i-1,j-1)!='w'){
-                        if(board.get_orbs_num(i-1,j)==0 && board.get_cell_color(i-1,j)!=color && board.get_cell_color(i-1,j)!='w'){
+                if(i == 1 && j == 5 && board.get_orbs_num(i,j-1)==2 && board.get_cell_color(i,j-1) == enemy_color){
+                    if(board.get_orbs_num(i-1,j-1)==1 && board.get_cell_color(i-1,j-1) == enemy_color){
+                        if(board.get_orbs_num(i-1,j)==0){
                             
                             index[0] = i;
                             index[1] = j;
@@ -901,11 +901,11 @@ void algorithm_A(Board board, Player player, int index[]){
                         }
                     }
                 }
-                //XX XX
-                //   O
-                else if(i == 1 && j == 1 && board.get_orbs_num(i,j-1)==0 ){
-                    if(board.get_orbs_num(i-1,j-1)==2 && board.get_cell_color(i-1,j-1)!=color && board.get_cell_color(i-1,j-1)!='w'){
-                        if(board.get_orbs_num(i-1,j)==2 && board.get_cell_color(i-1,j)!=color && board.get_cell_color(i-1,j)!='w'){
+                //XX X
+                //  O
+                else if(i == 4 && j == 1 && board.get_orbs_num(i,j-1)==0 && board.get_cell_color(i,j-1)==enemy_color){
+                    if(board.get_orbs_num(i-1,j-1)==2 && board.get_cell_color(i-1,j-1) == enemy_color){
+                        if(board.get_orbs_num(i-1,j)==2 && board.get_cell_color(i-1,j) == enemy_color){
                             
                             index[0] = i;
                             index[1] = j;
@@ -916,8 +916,8 @@ void algorithm_A(Board board, Player player, int index[]){
                 }
                 //   XX
                 //O  XX
-                if(i == 1 && j == 0 && board.get_orbs_num(i,j+1)==2 && board.get_cell_color(i,j+1)!=color && board.get_cell_color(i,j-1)!='w'){
-                    if(board.get_orbs_num(i-1,j+1)==2 && board.get_cell_color(i-1,j-1)!=color && board.get_cell_color(i-1,j-1)!='w'){
+                if(i == 1 && j == 0 && board.get_orbs_num(i,j+1)==2 && board.get_cell_color(i,j+1) == enemy_color){
+                    if(board.get_orbs_num(i-1,j+1)==2 && board.get_cell_color(i-1,j-1) == enemy_color){
                         if(board.get_orbs_num(i-1,j)==0){
                             
                             index[0] = i;
@@ -930,7 +930,7 @@ void algorithm_A(Board board, Player player, int index[]){
                 //XX XX
                 //O 
                 else if(i == 4 && j == 4 && board.get_orbs_num(i,j+1)==0){
-                    if(board.get_orbs_num(i-1,j+1)==2 && board.get_cell_color(i-1,j-1)!=color && board.get_cell_color(i-1,j-1)!='w'){
+                    if(board.get_orbs_num(i-1,j+1)==2 && board.get_cell_color(i-1,j-1) == enemy_color){
                         if(board.get_orbs_num(i-1,j)==0){
                             
                             index[0] = i;

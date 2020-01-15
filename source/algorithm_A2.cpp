@@ -177,7 +177,7 @@ void algorithm_A2(Board board, Player player, int index[]){
                             P[i][j].score+=2;
                         }
                     }
-                    else if(i == height && j == width-1){
+                    else if(i == height-1 && j == width-1){
                         if(board.get_orbs_num(i,j) == 0){
                             P[i][j].score+=2;
                         }
@@ -243,10 +243,11 @@ void algorithm_A2(Board board, Player player, int index[]){
                             for(int h = 0;h<width;h++){
                                 int a = P[i][j].point[k][h].eatnumber - P[i][j].eatenemy - P[i][j].point[k][h].numbers*3 ;
                                 if(first == 0) max = a;
-                                if(a > max){
+                                if(a < max){
                                     P[i][j].punish  = a;
                                     max = a;
                                 }
+                                else P[i][j].punish = max;
                                 first++;
                             }
                         }
@@ -255,7 +256,7 @@ void algorithm_A2(Board board, Player player, int index[]){
                 
             }
         }
-
+        File<<firststep;
         File<<endl;
         for(int a = 0;a<height;a++){
             for(int b = 0;b<width;b++){
@@ -278,7 +279,7 @@ void algorithm_A2(Board board, Player player, int index[]){
             for(int j = 0;j<width;j++){
                 if(board.get_cell_color(i,j) != enemy_color){
                     if(!Enemy[i][j].gameover){
-                        P[i][j].score -= P[i][j].punish;
+                        P[i][j].score += P[i][j].punish;
                         if(P[i][j].score > max){
                             index[0] = i;
                             index[1] = j;

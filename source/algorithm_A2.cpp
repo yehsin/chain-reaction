@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <conio.h>
 #include "../include/algorithm.h"
 
 using namespace std;
@@ -11,65 +10,11 @@ using namespace std;
 #define width 6
 ofstream File ("final3.path");
 
-#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
-    #define CLEAR "CLS"
-    
-#elif __APPLE__
-    #define CLEAR "clear"
-    #endif
-
-void Board::print_current_boards(){
-
-    int orb_num;
-    char symbol;
-
-    ////// Print out the current state of the board //////
-    system(CLEAR);
-    File << "=========================================" << endl;
-    for(int i = 0; i < ROW; i++){
-        for(int j = 0; j < COL; j++){
-
-            symbol = cells[i][j].get_color();
-            switch(symbol){
-                case 'r':
-                    symbol = 'O';
-                    break;
-                case 'b':
-                    symbol = 'X';
-                    break;
-                default:
-                    break;
-            }
-
-            orb_num = cells[i][j].get_orbs_num();
-            switch(orb_num){
-                case 0:
-                    File << "|    | ";
-                    break;
-                case 1:
-                    File << "|" << symbol << "   | ";
-                    break;
-                case 2: 
-                    File << "|" << symbol << symbol << "  | ";
-                    break;
-                case 3:
-                    File << "|" << symbol << symbol << symbol << " | ";
-                    break;
-                default:
-                    File << "|" << symbol << symbol << symbol << symbol << "| ";
-            }
-        }
-        File << endl;
-    }
-    File << "=========================================" << endl << endl;
-}
-
 typedef struct Pair{
     int BeOccupy = 0; //who is occupied by enemy
     int numbers = 0;  
     int eatnumber = 0;  //the next step enemy will eat cell
     int gameover = 0;
-    
 }Pair;
 
 typedef struct WinPoint{
@@ -152,7 +97,7 @@ void algorithm_A2(Board board, Player player, int index[]){
             tmp = board;
             if(board.get_cell_color(i,j) != color){
                 tmp.place_orb(i,j,enemy);
-                if(tmp.win_the_game(player)&& firststep!=0){
+                if(tmp.win_the_game(player) && firststep!=0){
                     isgameover = true;
                     Enemy[i][j].occupy = true;
                 }
@@ -166,39 +111,10 @@ void algorithm_A2(Board board, Player player, int index[]){
     //normal status
     if(!isgameover){
         int I,J;
-        //cout<<firststep;
-        if(firststep < 3){
-            //cout<<board.get_orbs_num(0,0);
-            if(board.get_orbs_num(0,0) == 0){
-
-                index[0] = 0;
-                index[1] = 0;
-                return;
-            }
-            else if(board.get_orbs_num(0,5) == 0){
-                //cout<<"BB";
-                index[0] = 0;
-                index[1] = 5;
-                return;
-            }
-            else if(board.get_orbs_num(4,0) == 0){
-                //cout<<"CC";
-                index[0] = 4;
-                index[1] = 0;
-                return ;
-            }
-            else if(board.get_orbs_num(4,5) == 0){
-                //cout<<"dd";
-                index[0] = 4;
-                index[1] = 5;
-                return;
-            }
-        }
         for(int i = 0 ;i<height;i++){
             for(int j = 0;j<width;j++){
                 tmp = board;
                 if(board.get_cell_color(i,j) != enemy_color){
-                    //cout<<board.get_cell_color(i,j)<<endl;
                     I = i;
                     J = j;
                     tmp.place_orb(i,j,&player);
@@ -207,9 +123,6 @@ void algorithm_A2(Board board, Player player, int index[]){
                         for(int h = 0;h<width;h++){
                             if(tmp.get_cell_color(k,h) == color){
                                 P[i][j].eatenemy++;
-                                /*if(board.get_orbs_num(k,h) == board.get_capacity(k,h)-1){
-                                    P[i][j].score++;
-                                }*/
                             }
                         }
                     }
@@ -244,7 +157,6 @@ void algorithm_A2(Board board, Player player, int index[]){
                     if(board.get_cell_color(i,j) == color){
                         my_power = board.get_capacity(i,j) - board.get_orbs_num(i,j);
                         if(my_power == kill_enemy){
-                        
                             P[i][j].score +=3;
                         }
                     }
@@ -296,7 +208,6 @@ void algorithm_A2(Board board, Player player, int index[]){
                             P[i][j].score ++;
                         }
                     }
-                    //tmp.print_current_boards();
                     
 /////////////////////////enemy turn////////////////////////////////////
                     for(int k = 0;k<height;k++){
@@ -307,7 +218,6 @@ void algorithm_A2(Board board, Player player, int index[]){
                                 if(tmp.win_the_game(*enemy)){
                                     Enemy[i][j].gameover = true;
                                 }
-                                //tmp.print_current_boards();
                                 for(int a = 0;a<height;a++){
                                     for(int b = 0;b<width;b++){
                                         if(tmp.get_cell_color(a,b) == color){
@@ -325,16 +235,19 @@ void algorithm_A2(Board board, Player player, int index[]){
                             }
                         }
                     }
-                    File<<endl;
-                    int max=0;
+
+                    int first=0;
+                    int max;
                     if(!Enemy[i][j].gameover){
                         for(int k = 0;k<height;k++){
                             for(int h = 0;h<width;h++){
                                 int a = P[i][j].point[k][h].eatnumber - P[i][j].eatenemy - P[i][j].point[k][h].numbers*3 ;
+                                if(first == 0) max = a;
                                 if(a > max){
                                     P[i][j].punish  = a;
                                     max = a;
                                 }
+                                first++;
                             }
                         }
                     }
@@ -342,13 +255,22 @@ void algorithm_A2(Board board, Player player, int index[]){
                 
             }
         }
-        //File<<firststep<<endl;
-        /*for(int i = 0;i<height;i++){
-            for(int j = 0;j<width;j++){
-                File<<P[i][j].score;
+
+        File<<endl;
+        for(int a = 0;a<height;a++){
+            for(int b = 0;b<width;b++){
+                File<<P[a][b].score<<" ";
             }
-           File<<endl;
-        }*/
+            File<<endl;
+        }
+        for(int a = 0;a<height;a++){
+            for(int b = 0;b<width;b++){
+                File<<P[a][b].punish<<" ";
+            }
+            File<<endl;
+        }
+        File<<endl;
+
         int max = P[I][J].score + P[I][J].punish;
         index[0] = I;
         index[1] = J;
@@ -366,23 +288,6 @@ void algorithm_A2(Board board, Player player, int index[]){
                 } 
             }
         }
-        
-        /*for(int i = 0;i<height;i++){
-            for(int j = 0;j<width;j++){
-                File<<P[i][j].punish;
-            }
-           File<<endl;
-        }
-
-        for(int i = 0;i<height;i++){
-            for(int j = 0;j<width;j++){
-                File<<P[i][j].score<<setw(8);
-            }
-           File<<endl;
-        }*/
-        
-        //cout<< index[0] << " "<<index[1];
-        //getch();
         return;
     }
 //////////////////////////////defend/////////////////////////////////

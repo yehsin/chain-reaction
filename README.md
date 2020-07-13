@@ -41,7 +41,7 @@ Apply the knowledge learned form the course of data structure and implement a co
 ### Project Objective:
 Apply the knowledge learned from the course of data structures and implement a competitive algorithm for the Critical Mass game.
 
-### Project Description
+### Program Description
 The gameplay takes place in a 5x6 board of squares. For each cell in the board, we define a critical mass. The critical mass is equal to the number of orthogonally adjacent cells. Therefore, that would be 4 for usual cells, 3 for cells in the edge and 2 for cells in the corner. All cells are initially empty. The Red and the Blue player take turns to place "orbs" of their corresponding colors. Each player can only place an orb of the chosen color either in an empty cell or a cell which already contains the same color orbs. When two or more orbs are placed in the same cell, they stack up. When a cell is loaded with a number of orbs equal to its critical mass, the stack immediately explodes. As a result of the explosion, the cell of explosion loses all orbs and becomes empty. At the same time, an orb is added to each of the orthogonally adjacent cells and all orbs of these orthogonally adjacent cells change color to the color of the orbs of explosion. The explosions might result in overloading of an adjacent cell and the chain reaction of explosion continues until every cell is stable. The winner is the one who eliminates every other player's orbs.
 ![](https://i.imgur.com/XMJF1Ui.png)
 You are to design a competitive algorithm and TAs will integrate your code to act as one of the game players. Your code is evaluated based on whether their code plays the game correctly and how well it plays against predefined bots.
